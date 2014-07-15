@@ -1,6 +1,6 @@
-#16x4 LCD INTERFACE WITH RASPBERRY PI.  
+# 16x4 LCD INTERFACE WITH RASPBERRY PI.  
 
-##LCD Module Hrdware
+## LCD Module Hrdware
 
 The pinout :  
 
@@ -45,13 +45,13 @@ LCD Pin|Function|Pi Function|Pi Pin
 
 **NOTE:** In order to control the contrast you can adjust the voltage presented to Pin 3 using a potentiometer. This must be between 0 and 5V.
 
-<img src="lcd_int.png" height="200"  > 
+<img src="lcd_int.png" height="200"> 
 
-##Python
+## Python
 
 You can control a HD44780 style display using any programmming environment you like but my weapon of choice is Python. Download [RPi.GPIO library](http://www.raspberrypi-spy.co.uk/2012/07/install-rpi-gpio-library-in-raspbian/) to provide access to the GPIO.
 
-###CODE:
+### CODE:
 
 ```
 #!/usr/bin/python  
@@ -78,7 +78,7 @@ You can control a HD44780 style display using any programmming environment you l
 # 15: LCD Backlight +5V**  
 # 16: LCD Backlight GND  
 
-#import  
+# import  
 import RPi.GPIO as GPIO  
 import time  
  
