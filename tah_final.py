@@ -1,11 +1,13 @@
 import RPi.GPIO as GPIO
 import time
 import func
+import lcd_rpi
+import lcd_ok
+import lcd_fail
+import serial
 
 #inistilize all the pins to low.
 func.init()
-
-
 #We start testing the digital I/O, i.e from pin 2 to pin 13
 
 GPIO.output(7,GPIO.HIGH)
@@ -260,7 +262,11 @@ GPIO.output(5,GPIO.LOW)
 GPIO.output(8,GPIO.LOW)
 time.sleep(2)
 
-
+ser = serial.Serial('/dev/ttyACM0', 9600)
+if ser == "ok"
+	lcd_ok.def()
+else if ser == "fail"
+	lcd_fail.def() 
 
 
 
