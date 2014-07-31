@@ -1,6 +1,7 @@
 
 
-
+int count_h = 0;
+int count_l = 0;
 int inMin = 2; // Lowest input pin
 int inMax = 13; // Highest input pin
 void setup()
@@ -16,64 +17,35 @@ void setup()
 
 void loop()
 {
-   if(digitalRead(2)==HIGH)
-   {  
-      Serial.print("pin-2 OK!!");
-   }
-   
-   else if(digitalRead(3)==HIGH)
-   {  
-      Serial.print("pin-3 OK!!");
-   }
-   
-   else if(digitalRead(4)==HIGH)
-   {  
-      Serial.print("pin-4 OK!!");
-   }
-   
-   else if(digitalRead(5)==HIGH)
-   {  
-      Serial.print("pin-5 OK!!");
-   }
-   
-   else if(digitalRead(6)==HIGH)
-   {  
-      Serial.print("pin-6 OK!!");
-   }
-   
-   else if(digitalRead(7)==HIGH)
-   {  
-      Serial.print("pin-7 OK!!");
-   }
-   
-   else if(digitalRead(8)==HIGH)
-   {  
-      Serial.print("pin-8 OK!!");
-   }
-   
-   else if(digitalRead(9)==HIGH)
-   {  
-      Serial.print("pin-9 OK!!");
-   }
-   
-   else if(digitalRead(10)==HIGH)
-   {  
-      Serial.print("pin-10 OK!!");
-   }
-   
-   else if(digitalRead(11)==HIGH)
-   {  
-      Serial.print("pin-11 OK!!");
-   }
-   
-   else if(digitalRead(12)==HIGH)
-   {  
-      Serial.print("pin-12 OK!!");
-   }
-   
-   else if(digitalRead(13)==HIGH)
-   {  
-      Serial.print("pin-13 OK!!");
-   }
+  digitalRead(13);
+  digitalRead(12);
+  digitalRead(11);
+  digitalRead(10);
+  digitalRead(9);
+  digitalRead(8);
+  digitalRead(7);
+  digitalRead(6);
+  digitalRead(5);
+  digitalRead(4);
+  digitalRead(3);
+  digitalRead(2);
+  
+  for(int k=inMax; k>= inMin; k--)
+  {
+     if(digitalRead(k) > 2.5)
+        count_h++;
+     else if(digitalRead(k) == 0.0)
+        count_l++;
+  }
+  
+  Serial.println(count_h);
+  Serial.println(count_l);
+  /*if(count_h > 2 && count_l > 2)
+      Serial.write('ok');
+  else if(count_h < 2 && count_l < 2)  
+      Serial.write('fail');
+  */    
+  delay(500);
+  
 }
    

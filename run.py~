@@ -3,10 +3,9 @@ import time
 import os
 
 #adjust for where your switch is connected
-#buttonPin = 11
+#buttonPin = 17
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11,GPIO.IN)
-GPIO.setup(15,GPIO.OUT)
 #input = GPIO.input(17)
 
 #while True:
@@ -20,12 +19,8 @@ while True:
   input = GPIO.input(11)
   #if the last reading was low and this one high, print
   if ((not prev_input) and input):
-    print("START")	
-    #once the button is pressed, the script will run and there will be a single beep sound.
-    os.system('python /home/pi/tah_final.py')
-    GPIO.output(15,GPIO.HIGH)
-    time.sleep(0.5)
-    GPIO.output(15,GPIO.LOW)		 
+    print("LED BLINK")	
+    os.system('python /home/pi/led_on.py')
   #update previous input
   prev_input = input
   #slight pause to debounce
