@@ -264,9 +264,19 @@ time.sleep(2)
 
 ser = serial.Serial('/dev/ttyACM0', 9600)
 if ser == "ok":
-	lcd_ok.main()
+        lcd_ok.main()
+        GPIO.output(23,GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(23,GPIO.LOW)
 elif ser == "fail":
-	lcd_fail.main() 
+        lcd_fail.main()
+        GPIO.output(23,GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(23,GPIO.LOW)
+        time.sleep(1)
+        GPIO.output(23,GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(23,GPIO.LOW)
 
 
 
