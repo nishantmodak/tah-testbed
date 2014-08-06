@@ -263,10 +263,10 @@ GPIO.output(8,GPIO.LOW)
 time.sleep(2)
 
 ser = serial.Serial('/dev/ttyACM0', 9600)
-if ser == "ok"
-	lcd_ok.def()
-else if ser == "fail"
-	lcd_fail.def() 
+if ser == "ok":
+	lcd_ok.main()
+elif ser == "fail":
+	lcd_fail.main() 
 
 
 
