@@ -19,6 +19,8 @@ while True:
     time.sleep(1)
     GPIO.output(23,GPIO.LOW)
     #once the button is pressed, the script will run and there will be a single beep sound.
+    os.system("make")
+    os.system("make upload")	
     os.system('python /home/pi/Ali/tah-testbed/lcd_rpi.py')
     os.system('python /home/pi/Ali/tah-testbed/tah_final.py')
     #update previous input
@@ -36,6 +38,5 @@ while True:
     GPIO.output(23,GPIO.LOW)
   prev_input = input
   #slight pause to debounce
-  time.sleep(0.05)		
+  time.sleep(0.05)	
     #once the button is pressed, the script will run and there will be a single beep sound.
-
