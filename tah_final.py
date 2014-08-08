@@ -5,6 +5,7 @@ import lcd_rpi
 import lcd_ok
 import lcd_fail
 import serial
+import lcd_over
 
 #inistilize all the pins to low.
 func.init()
@@ -277,6 +278,12 @@ elif ser == "fail":
         GPIO.output(23,GPIO.HIGH)
         time.sleep(1)
         GPIO.output(23,GPIO.LOW)
+else
+	lcd_over.main()
+	GPIO.output(23,GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(23,GPIO.LOW)
+	
 
 
 
