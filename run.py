@@ -1,7 +1,8 @@
 import RPi.GPIO as GPIO
 import time
 import os
-
+import lcd_rpi
+import lcd_fail
 #adjust for where your switch is connected
 #buttonPin = 11
 GPIO.setmode(GPIO.BOARD)
@@ -21,7 +22,9 @@ while True:
     #once the button is pressed, the script will run and there will be a single beep sound.
     os.system("make")
     os.system("make upload")	
-    os.system('python /home/pi/Ali/tah-testbed/lcd_rpi.py')
+    lcd_rpi.main()
+    time.sleep(2)
+    lcd_rpi.testing()	
     os.system('python /home/pi/Ali/tah-testbed/tah_final.py')
     #update previous input
   prev_input = input
@@ -29,6 +32,7 @@ while True:
   time.sleep(0.05)
   
   if ((not prev_input) and input1):
+    lcd_fail.main();	
     GPIO.output(23,GPIO.HIGH)
     time.sleep(1)
     GPIO.output(23,GPIO.LOW)
