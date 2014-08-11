@@ -30,6 +30,7 @@
 #import
 import RPi.GPIO as GPIO
 import time
+import sys
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(7,GPIO.OUT)
@@ -69,21 +70,10 @@ def main():
   # Initialise display
   lcd_init()
  
+   # Send some test
+  lcd_byte(LCD_LINE_1, LCD_CMD)
+  lcd_string(str(sys.argv[1]))
 
-  # Send some test
-  lcd_byte(LCD_LINE_1, LCD_CMD)
-  lcd_string("RHC")
-  lcd_byte(LCD_LINE_2, LCD_CMD)
-  lcd_string(" ")
- 
-  time.sleep(2) # 3 second delay
- 
-  # Send some text
-  lcd_byte(LCD_LINE_1, LCD_CMD)
-  lcd_string("TAH")
-  lcd_byte(LCD_LINE_2, LCD_CMD)
-  lcd_string("TESTBED")
- 
   time.sleep(2)
 
 def testing():
@@ -107,7 +97,6 @@ def testing():
   lcd_string("Testing..")
 
   time.sleep(5)
-
 
  
 def lcd_init():
