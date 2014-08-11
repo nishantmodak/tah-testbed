@@ -1,15 +1,17 @@
 import RPi.GPIO as GPIO
 import time
+import os
 import func
 import lcd_rpi
 import serial
 import lcd_over
-
 #inistilize all the pins to low.
 func.init()
-#We start testing the digital I/O, i.e from pin 2 to pin 13
 
 GPIO.output(7,GPIO.HIGH)
+
+
+#We start testing the digital I/O, i.e from pin 2 to pin 13
 
 #I/O=13
 GPIO.output(3,GPIO.LOW)
@@ -261,32 +263,17 @@ GPIO.output(5,GPIO.LOW)
 GPIO.output(8,GPIO.LOW)
 time.sleep(1)
 
-ser = serial.Serial('/dev/ttyACM0', 9600)
-if ser == "ok":
-        lcd_rpi.main()
-        GPIO.output(23,GPIO.HIGH)
-        time.sleep(1)
-        GPIO.output(23,GPIO.LOW)
-elif ser == "fail":
-        lcd_rpi.main()
-        GPIO.output(23,GPIO.HIGH)
-        time.sleep(1)
-        GPIO.output(23,GPIO.LOW)
-        time.sleep(1)
-        GPIO.output(23,GPIO.HIGH)
-        time.sleep(1)
-        GPIO.output(23,GPIO.LOW)
-else
-	lcd_over.main()
-	GPIO.output(23,GPIO.HIGH)
-        time.sleep(1)
-        GPIO.output(23,GPIO.LOW)
-	
+ser = serial.Serial('/dev/ttyACM4', 9600)
+str1=""
+while str != '\n':
+    str = ser.read()
+    str1 = str1 + str
 
+os.system('python /home/pi/Ali/tah-testbed/lcd_rpi.py ' + str1)
 
+time.sleep(3)
 
-
-
+lcd_over.main()
 
 
 
