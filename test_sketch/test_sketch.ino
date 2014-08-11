@@ -161,11 +161,9 @@ void loop()
   if(pinA5 == 0)
     flagA5_0 = 0;  
   if((flag13_1 == 1) && (flag13_0 == 0) && (flag12_1 == 1) && (flag12_0 == 0) && (flag11_1 == 1) && (flag11_0 == 0) && (flag10_1 == 1) && (flag10_0 == 0) && (flag9_1 == 1) && (flag9_0 == 0) && (flag8_1 == 1) && (flag8_0 == 0) && (flag7_1 == 1) && (flag7_0 == 0) && (flag6_1 == 1) && (flag6_0 == 0) && (flag5_1 == 1) && (flag5_0 == 0) && (flag4_1 == 1) && (flag4_0 == 0) && (flag3_1 == 1) && (flag3_0 == 0) && (flag2_1 == 1) && (flag2_0 == 0) && (flagA0_1 == 1) && (flagA0_0 == 0) && (flagA1_1 == 1) && (flagA1_0 == 0) && (flagA2_1 == 1) && (flagA2_0 == 0) && (flagA3_1 == 1) && (flagA3_0 == 0) && (flagA4_1 == 1) && (flagA4_0 == 0) && (flagA5_1 == 1) && (flagA5_0 == 0))
-    Serial.write('ok');
+    Serial.println("ok");
   else
-    Serial.write('fail');
-    
-  delay(250); 
- 
+    Serial.println("fail");
+     
 }
    
